@@ -3,58 +3,79 @@ package cadastroalunos;
 import java.util.Scanner;
 
 public class Terminal {
-   Scanner scanner = new Scanner(System.in);
-   public void exibirMenu(){
-   int opcao = 0;
 
-System.out.println("=================================================================");
-System.out.println("          Bem vindos ao sistema de cadastro alunos                 ");
-System.out.println("=================================================================");
+    private Scanner scanner = new Scanner(System.in);
 
-while (opcao !=5) {
-   System.out.println("--- MENU PRINCIPAL ---");
-   System.out.println("1 - Cadastrar Aluno");
-   System.out.println("2 - Consultar Aluno");
-   System.out.println("3 - Atualizar Cadastro");
-   System.out.println("4 - Deletar Aluno");
-   System.out.println("5 - Sair ");
-   System.out.println("Escolha uma opção: ");
+    public void exibirMenu() {
+        int opcao = 0;
 
-   opcao = scanner.nextInt();
-   scanner.nextLine();
+        System.out.println("=================================================================");
+        System.out.println("         Bem vindos ao sistema de cadastro de alunos             ");
+        System.out.println("=================================================================");
 
-switch (opcao) {
-   case 1: 
-   System.out.println("NOME: ");
-   String nome = scanner.nextLine();
-   
-   System.out.println("CPF: ");
-   String cpf = scanner.nextLine();
-   
-   System.out.println("Idade: ");
-   String idade = scanner.nextLine();
-   break;
+        while (opcao != 5) {
+            System.out.println("\n--- MENU PRINCIPAL ---");
+            System.out.println("1 - Cadastrar Aluno");
+            System.out.println("2 - Consultar Aluno");
+            System.out.println("3 - Atualizar Cadastro");
+            System.out.println("4 - Deletar Aluno");
+            System.out.println("5 - Sair");
+            System.out.print("Escolha uma opcao: ");
 
-   case 2: 
-   System.out.println("Digite o Numero da Matricula: ");
-   break;  
+            try {
+                opcao = scanner.nextInt();
+                scanner.nextLine();
 
-   case 3:
-   System.out.println("Qual dado deseja atualizar?");
-   break;
+                switch (opcao) {
+                    case 1:
+                        System.out.print("Nome: ");
+                        String nome = scanner.nextLine();
 
-   case 4:
-   System.out.println("Digite o nome do aluno que deseja deletar: ");
-   break;
+                        System.out.print("CPF: ");
+                        String cpf = scanner.nextLine();
 
-   case 5:
-   System.out.println(" Encerrando sistema! Desligando... ");
-   break;
+                        System.out.print("Telefone: ");
+                        String telefone = scanner.nextLine();
 
+                        System.out.print("Email: ");
+                        String email = scanner.nextLine();
 
+                        System.out.print("Curso: ");
+                        String curso = scanner.nextLine();
 
-}
-   }
-}
+                        System.out.print("Data de Nascimento (dd/mm/aaaa): ");
+                        String dataNascimento = scanner.nextLine();
 
+                        System.out.print("Matricula: ");
+                        String matricula = scanner.nextLine();
+
+                    case 2:
+                        System.out.print("Digite a matricula: ");
+                        break;
+
+                    case 3:
+                        System.out.print("Digite a matricula do aluno a atualizar: ");
+                        break;
+
+                    case 4:
+                        System.out.print("Digite a matricula do aluno a deletar: ");
+                        break;
+
+                    case 5:
+                        System.out.println("Encerrando sistema! Ate logo!");
+                        break;
+
+                    default:
+                        System.out.println("Opcao invalida. Tente novamente.");
+                }
+
+            } catch (Exception e) {
+                System.out.println("Entrada invalida. Digite apenas numeros.");
+                scanner.nextLine();
+                opcao = 0;
+            }
+        }
+
+        scanner.close();
+    }
 }

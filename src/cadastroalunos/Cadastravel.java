@@ -1,5 +1,5 @@
 package cadastroalunos;
 
-public class Cadastravel {
+public interface Cadastravel {
     
 }
