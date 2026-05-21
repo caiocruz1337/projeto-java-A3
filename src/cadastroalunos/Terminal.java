@@ -31,30 +31,27 @@ public class Terminal {
 
                 switch (opcao) {
                     case 1:
-                        System.out.print("Nome: ");
-                        String nome = scanner.nextLine();
+    System.out.print("Nome: ");
+    String nome = scanner.nextLine();
 
-                        System.out.print("CPF: ");
-                        String cpf = scanner.nextLine();
+    System.out.print("CPF: ");
+    String cpf = scanner.nextLine();
 
-                        System.out.print("Telefone: ");
-                        String telefone = scanner.nextLine();
+    System.out.print("Telefone: ");
+    String telefone = scanner.nextLine();
 
-                        System.out.print("Email: ");
-                        String email = scanner.nextLine();
+    System.out.print("Email: ");
+    String email = scanner.nextLine();
 
-                        System.out.print("Curso: ");
-                        String curso = scanner.nextLine();
+    System.out.print("Curso: ");
+    String curso = scanner.nextLine();
 
-                        System.out.print("Data de Nascimento (dd/mm/aaaa): ");
-                        String dataNascimento = scanner.nextLine();
+    System.out.print("Data de Nascimento (dd/mm/aaaa): ");
+    String dataNascimento = scanner.nextLine();
 
-                        System.out.print("Matricula: ");
-                        String matricula = scanner.nextLine();
-
-                        Aluno aluno = new Aluno(nome, cpf, telefone, matricula, curso, email, dataNascimento);
-                        gerenciador.cadastrar(aluno);
-                        break;
+    Aluno aluno = new Aluno(nome, cpf, telefone, "", curso, email, dataNascimento);
+    gerenciador.cadastrar(aluno); // ← essa linha estava faltando
+    break;
 
                     case 2:
                         System.out.print("Digite a matricula: ");
