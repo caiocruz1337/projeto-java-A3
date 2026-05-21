@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class Terminal {
 
     private Scanner scanner = new Scanner(System.in);
+    private GerenciadorAluno gerenciador = new GerenciadorAluno();
 
     public void exibirMenu() {
         int opcao = 0;
+
+        gerenciador.getBanco().criarTabela();
 
         System.out.println("=================================================================");
         System.out.println("         Bem vindos ao sistema de cadastro de alunos             ");
@@ -49,16 +52,66 @@ public class Terminal {
                         System.out.print("Matricula: ");
                         String matricula = scanner.nextLine();
 
-                    case 2:
-                        System.out.print("Digite a matricula: ");
+                        Aluno aluno = new Aluno(nome, cpf, telefone, matricula, curso, email, dataNascimento);
+                        gerenciador.cadastrar(aluno);
                         break;
 
+                    case 2:
+                        System.out.print("Digite a matricula: ");
+                        String matBusca = scanner.nextLine();
+                        gerenciador.buscar(matBusca);
+                        break;
                     case 3:
                         System.out.print("Digite a matricula do aluno a atualizar: ");
-                        break;
+                        String matAtualizar = scanner.nextLine();
+                        Aluno existente = gerenciador.buscar(matAtualizar);
+
+                        if (existente != null) {
+                            System.out.println("\n--- O QUE DESEJA ATUALIZAR? ---");
+                            System.out.println("1 - Nome");
+                            System.out.println("2 - Email");
+                            System.out.println("3 - Curso");
+                            System.out.println("4 - Telefone");
+                            System.out.println("5 - Data de Nascimento");
+                            System.out.print("Escolha uma opcao: ");
+
+                            int opcaoAtualizar = scanner.nextInt();
+                            scanner.nextLine();
+
+        switch (opcaoAtualizar) {
+                            case 1:
+                                System.out.print("Novo nome: ");
+                                existente.setNome(scanner.nextLine());
+                                break;
+                            case 2:
+                                System.out.print("Novo email: ");
+                                existente.setEmail(scanner.nextLine());
+                                break;
+                            case 3:
+                                System.out.print("Novo curso: ");
+                                existente.setCurso(scanner.nextLine());
+                                break;
+                            case 4:
+                                System.out.print("Novo telefone: ");
+                                existente.setTelefone(scanner.nextLine());
+                                break;
+                            case 5:
+                                System.out.print("Nova data de nascimento (dd/mm/aaaa): ");
+                                existente.setDataNascimento(scanner.nextLine());
+                                break;
+                            default:
+                                System.out.println("Opcao invalida.");
+                                break;
+                        }
+
+                        gerenciador.atualizar(existente);
+                    }
+                    break;
 
                     case 4:
                         System.out.print("Digite a matricula do aluno a deletar: ");
+                        String matDeletar = scanner.nextLine();
+                        gerenciador.deletar(matDeletar);
                         break;
 
                     case 5:
