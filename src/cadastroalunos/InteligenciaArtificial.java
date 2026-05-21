@@ -14,8 +14,8 @@ public class InteligenciaArtificial {
     String prompt = """
         Gere um numero de matricula universitaria para o aluno abaixo.
         Responda APENAS com o numero da matricula, sem texto adicional.
-        Formato: ANO + CURSO (3 letras maiusculas) + NUMERO SEQUENCIAL (4 digitos)
-        Exemplo: 2024ADS0001
+        Formato: ANO ATUAL + CURSO (3 letras maiusculas) + NUMERO SEQUENCIAL (4 digitos)
+        Exemplo: 2026ADS0001
 
         Nome: %s
         Curso: %s
@@ -53,16 +53,16 @@ public class InteligenciaArtificial {
             }
 
             int inicio = resposta.indexOf("\"content\":\"") + 11;
-if (inicio == 10) {
-    inicio = resposta.indexOf("\"content\": \"") + 12;
-}
-int fim = resposta.indexOf("\"", inicio);
-String resultado = resposta.substring(inicio, fim).trim();
-return resultado;
+            if (inicio == 10) {
+            inicio = resposta.indexOf("\"content\": \"") + 12;
+            }
+            int fim = resposta.indexOf("\"", inicio);
+            String resultado = resposta.substring(inicio, fim).trim();
+            return resultado;
 
-        } catch (Exception e) {
+            } catch (Exception e) {
             System.out.println("Erro ao chamar IA: " + e.getMessage());
             return "ERRO: " + e.getMessage();
-        }
+            }
     }
 }
