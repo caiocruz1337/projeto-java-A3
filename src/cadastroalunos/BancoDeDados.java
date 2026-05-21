@@ -116,4 +116,36 @@ public class BancoDeDados {
             System.out.println("Erro ao criar tabela: " + e.getMessage());
         }
     }
+
+    public void listarTodos() {
+    String sql = "SELECT * FROM alunos";
+    try (Connection conn = conectar();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        ResultSet rs = stmt.executeQuery();
+        int contador = 0;
+
+        System.out.println("\n--- LISTA DE ALUNOS ---");
+
+        for (ResultSet r = rs; r.next(); ) {
+            String nome = r.getString("nome");
+
+            if (nome == null || nome.isEmpty()) {
+                continue; // pula alunos sem nome
+            }
+
+            contador++;
+            System.out.println(contador + ". " + nome + " — Matricula: " + r.getString("matricula") + " — Curso: " + r.getString("curso"));
+        }
+
+        if (contador == 0) {
+            System.out.println("Nenhum aluno cadastrado.");
+        }
+
+        } catch (Exception e) {
+        System.out.println("Erro ao listar alunos: " + e.getMessage());
+        } finally {
+        System.out.println("Consulta finalizada.");
+        }
+    }
 }

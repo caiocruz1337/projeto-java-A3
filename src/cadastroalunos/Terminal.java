@@ -16,44 +16,45 @@ public class Terminal {
         System.out.println("         Bem vindos ao sistema de cadastro de alunos             ");
         System.out.println("=================================================================");
 
-        while (opcao != 5) {
+        do {
             System.out.println("\n--- MENU PRINCIPAL ---");
             System.out.println("1 - Cadastrar Aluno");
             System.out.println("2 - Consultar Aluno");
             System.out.println("3 - Atualizar Cadastro");
             System.out.println("4 - Deletar Aluno");
             System.out.println("5 - Sair");
+            System.out.println("6 - Listar Todos os Alunos");
             System.out.print("Escolha uma opcao: ");
 
             try {
                 opcao = scanner.nextInt();
                 scanner.nextLine();
 
-                switch (opcao) {
-                    case 1:
-    System.out.print("Nome: ");
-    String nome = scanner.nextLine();
+            switch (opcao) {
+                case 1:
+                    System.out.print("Nome: ");
+                    String nome = scanner.nextLine();
 
-    System.out.print("CPF: ");
-    String cpf = scanner.nextLine();
+                    System.out.print("CPF: ");
+                    String cpf = scanner.nextLine();
 
-    System.out.print("Telefone: ");
-    String telefone = scanner.nextLine();
+                    System.out.print("Telefone: ");
+                    String telefone = scanner.nextLine();
 
-    System.out.print("Email: ");
-    String email = scanner.nextLine();
+                    System.out.print("Email: ");
+                    String email = scanner.nextLine();
 
-    System.out.print("Curso: ");
-    String curso = scanner.nextLine();
+                    System.out.print("Curso: ");
+                    String curso = scanner.nextLine();
 
-    System.out.print("Data de Nascimento (dd/mm/aaaa): ");
-    String dataNascimento = scanner.nextLine();
+                    System.out.print("Data de Nascimento (dd/mm/aaaa): ");
+                    String dataNascimento = scanner.nextLine();
 
-    Aluno aluno = new Aluno(nome, cpf, telefone, "", curso, email, dataNascimento);
-    gerenciador.cadastrar(aluno); // ← essa linha estava faltando
-    break;
+                    Aluno aluno = new Aluno(nome, cpf, telefone, "", curso, email, dataNascimento);
+                    gerenciador.cadastrar(aluno); 
+                    break;
 
-                    case 2:
+                     case 2:
                         System.out.print("Digite a matricula: ");
                         String matBusca = scanner.nextLine();
                         gerenciador.buscar(matBusca);
@@ -114,6 +115,9 @@ public class Terminal {
                     case 5:
                         System.out.println("Encerrando sistema! Ate logo!");
                         break;
+                    case 6:
+                        gerenciador.getBanco().listarTodos();
+                        break;
 
                     default:
                         System.out.println("Opcao invalida. Tente novamente.");
@@ -124,7 +128,7 @@ public class Terminal {
                 scanner.nextLine();
                 opcao = 0;
             }
-        }
+        } while(opcao!=5);
 
         scanner.close();
     }

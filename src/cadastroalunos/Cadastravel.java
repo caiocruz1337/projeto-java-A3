@@ -5,4 +5,5 @@ public interface Cadastravel {
     Aluno buscar(String matricula);
     void atualizar(Aluno aluno);
     void deletar(String matricula);
+    void listarTodos();
 }

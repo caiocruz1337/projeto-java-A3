@@ -56,5 +56,10 @@ public class GerenciadorAluno implements Cadastravel {
         banco.deletar(matricula);
         System.out.println("Aluno removido com sucesso!");
     }
+
+    @Override
+    public void listarTodos() {
+    banco.listarTodos();
+    }
 }
 
