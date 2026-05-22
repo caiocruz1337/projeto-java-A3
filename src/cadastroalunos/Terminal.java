@@ -105,6 +105,7 @@ public class Terminal {
 
                         gerenciador.atualizar(existente);
                     }
+                break;
 
                 case 4:
                     System.out.print("Digite a matricula do aluno a deletar: ");

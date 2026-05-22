@@ -20,7 +20,7 @@ public class BancoDeDados {
     return conn;
 }
 
-    public void salvar(Aluno aluno) {
+    public boolean salvar(Aluno aluno) {
         String sql = "INSERT INTO alunos (matricula, nome, cpf, telefone, email, curso, data_nascimento) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -33,9 +33,11 @@ public class BancoDeDados {
             stmt.setString(6, aluno.getCurso());
             stmt.setString(7, aluno.getDataNascimento());
             stmt.executeUpdate();
+            return true;
 
         } catch (Exception e) {
             System.out.println("Erro ao salvar aluno: " + e.getMessage());
+            return false;
         }
     }
 
