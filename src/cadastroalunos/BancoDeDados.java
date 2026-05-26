@@ -137,7 +137,7 @@ public class BancoDeDados {
             }
 
             contador++;
-            System.out.println(contador + ". " + nome + " — Matricula: " + r.getString("matricula") + " — Curso: " + r.getString("curso"));
+            System.out.println(contador + ". " + "Nome:" + nome + " \n — Matricula: " + r.getString("matricula") + "\n — Curso:" + r.getString("curso"));
         }
 
         if (contador == 0) {
