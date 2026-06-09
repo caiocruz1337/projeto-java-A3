@@ -1,77 +1,91 @@
-# 📚 Projeto Java A3 - UniBH
+# Sistema de Cadastro de Alunos
 
-Alunos:
-Jonatas Natanael Antunes Oliveira - RA: 1232021950
+Projeto desenvolvido para a atividade A3 da disciplina de Programação Orientada a Objetos.
 
+## Integrantes
 
-Projeto desenvolvido para o trabalho A3 do UniBH, utilizando Java para simular um sistema simples de cadastro de alunos via terminal.
+- Caio Augusto Vicente da Cruz
+- Mauricio Cosme Abraham Lavin
+- Vinicius Henrique Santos Mendes
+- Jonatas Natanael Antunes Oliveira
+- João Lucas Queiroz
 
-## 📌 Objetivo do projeto
+## Descrição
 
-O sistema foi criado com foco em praticar conceitos fundamentais de programação orientada a objetos, organização de classes, manipulação de dados e estruturação de projetos em Java.
+O sistema permite realizar o cadastro e gerenciamento de alunos por meio de um menu no terminal. Os dados são armazenados em um banco SQLite e podem ser consultados, alterados ou removidos posteriormente.
 
-O projeto possui funcionalidades básicas de gerenciamento de alunos, permitindo interação diretamente pelo terminal.
+Além disso, o projeto utiliza a API da Groq para auxiliar na validação das informações cadastradas.
 
----
+## Funcionalidades
 
-## 🛠 Tecnologias utilizadas
+- Cadastrar aluno
+- Consultar aluno pela matrícula
+- Atualizar cadastro
+- Excluir aluno
+- Listar alunos cadastrados
+- Gerar matrícula automaticamente
+
+## Tecnologias utilizadas
 
 - Java
-- SQL
-- VS Code
+- SQLite
+- JDBC
+- API Groq
 
----
+## Estrutura do projeto
 
-## 📁 Estrutura do projeto
+```text
+src/
+├── Aluno.java
+├── Pessoa.java
+├── GerenciadorAluno.java
+├── BancoDeDados.java
+├── InteligenciaArtificial.java
+├── Terminal.java
+└── app.java
+```
+
+## Como executar
+
+Clone o repositório:
 
 ```bash
-projeto-java-A3/
-├── src/
-│   ├── cadastroalunos/
-│   │   ├── Aluno.java
-│   │   ├── BancoDeDados.java
-│   │   ├── Cadastravel.java
-│   │   ├── GerenciadorAluno.java
-│   │   ├── InteligenciaArtificial.java
-│   │   ├── Pessoa.java
-│   │   ├── Terminal.java
-│   │   └── app.java
-│   └── database/
-│       └── schema.sql
-├── bin/
-├── .vscode/
-├── .gitignore
-└── README.md
-
-⚙️ Funcionalidades
-Cadastro de alunos
-Consulta de informações
-Atualização de cadastro
-Remoção de alunos
-Menu interativo no terminal
-
-▶️ Como executar o projeto
-1. Clonar o repositório
 git clone https://github.com/caiocruz1337/projeto-java-A3.git
-2. Entrar na pasta do projeto
+```
+
+Acesse a pasta do projeto:
+
+```bash
 cd projeto-java-A3
-3. Compilar os arquivos Java
-javac -d bin src/cadastroalunos/*.java
-4. Executar o projeto
-java -cp bin cadastroalunos.app
+```
 
-💻 Exemplo do menu
-1 - Cadastrar Aluno
-2 - Consultar Aluno
-3 - Atualizar Cadastro
-4 - Deletar Aluno
-5 - Sair
+Compile os arquivos:
 
-👨‍🎓 Informações do aluno
+```bash
+javac -d bin -cp "lib/*" src/cadastroalunos/*.java
+```
 
-Os alunos cadastrados possuem:
+Execute a aplicação:
 
-Nome
-CPF
-Idade
-Matrícula
+```bash
+java -cp "bin;lib/*" cadastroalunos.app
+```
+
+## Banco de dados
+
+O projeto utiliza SQLite para armazenar os dados dos alunos. A tabela é criada automaticamente na primeira execução do sistema.
+
+## Objetivos da atividade
+
+Durante o desenvolvimento foram aplicados conceitos de:
+
+- Programação Orientada a Objetos
+- Herança
+- Encapsulamento
+- Interfaces
+- Persistência de dados
+- Consumo de API externa
+
+## Observações
+
+Este projeto foi desenvolvido para fins acadêmicos como parte da atividade A3, com o objetivo de praticar os conteúdos estudados durante a disciplina.
