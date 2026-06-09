@@ -21,9 +21,9 @@ Além disso, o projeto utiliza a API da Groq para auxiliar na validação das in
 - Cadastrar aluno
 - Consultar aluno pela matrícula
 - Atualizar cadastro
-- Excluir aluno
+- Remover aluno
 - Listar alunos cadastrados
-- Gerar matrícula automaticamente
+- Verificação com IA
 
 ## Tecnologias utilizadas
 
